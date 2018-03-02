@@ -1,6 +1,8 @@
 // TODO
+// Add spaceship .obj
+// Add background music
+// Add hitting effect
 // Vector optimization
-// 
 
 // Spaceship
 var spaceship_height = 1;
