@@ -9,9 +9,9 @@ var spaceship_depth = 1;
 
 // Meteor
 var number_of_meteors = 500;
-var meteor_height = 1;
-var meteor_width = 1;
-var meteor_depth = 1;
+var meteor_height = 0.1;
+var meteor_width = 0.1;
+var meteor_depth = 0.1;
 var min_falling_distance = 10;
 var max_falling_distance = 50;
 
@@ -45,8 +45,7 @@ AFRAME.registerComponent('meteors-rain',{
             e.detail.contact;    // Stats about the collision (CANNON.ContactEquation).
             e.detail.contact.ni; // Normal (direction) of the collision (CANNON.Vec3).
 
-            scene.removeChild('spaceship');
-            scene.appendChild(generateSpaceship());
+            updateSpaceshipPosition();
           });
     }
 })
@@ -74,7 +73,7 @@ function generateMeteor(){
         width: meteor_width,
         depth: meteor_depth
     });
-
+    meteor.setAttribute('color','#ECECEC');
     meteor.setAttribute('position', position);
     meteor.setAttribute('dynamic-body', {
         shape: 'box',
@@ -107,4 +106,18 @@ function generateSpaceship(){
     spaceship.setAttribute('static-body');
 
     return spaceship;
+}
+
+
+// Update spaceship position
+function updateSpaceshipPosition(){
+
+    spaceship = document.getElementById('spaceship');
+
+    x = Math.floor((Math.random() * floor_width/4) - floor_width/8);
+    y = Math.floor((Math.random() * floor_height/4) - floor_height/8);
+    h = 0;
+
+    var position = '' + x + ' ' + h + ' ' + y;
+    spaceship.setAttribute('position', position);
 }
