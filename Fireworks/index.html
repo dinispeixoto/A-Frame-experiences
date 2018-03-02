@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-physics-system@1.4.0/dist/aframe-physics-system.min.js"></script>
+    <script src="./kksMagic/dist/kksMagic/kksMagic.js"></script>
+    <script src="./kksMagic/dist/kksFireWorks/kksFireWorks.js"></script>
+    <script src="meteors.js"></script>
+  </head>
+
+  <body>
+    <a-scene stats>
+        <a-assets>
+                <img id="myPattern" src="./dist/kksFireWorks/imgs/pattern.png">
+        </a-assets>
+        <a-entity position='-20 -30 -100' kks-magic='preset:fireworks;options:{eColor:"#FF3333",pAssetId:"myPattern", useTrail:"0"}'></a-entity>
+                
+        <a-entity position='-20 -40 -110' kks-magic='preset:fireworks;options:{eColor:"#FF3333"}'></a-entity>
+        <a-sky color='#000'></a-sky><br>
+    </a-scene>
+  </body>
+</html>
