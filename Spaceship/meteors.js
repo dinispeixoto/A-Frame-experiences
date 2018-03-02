@@ -1,7 +1,13 @@
+// Meteors
 var number_of_meteors = 100;
+var meteor_height = 0.1;
+var meteor_width = 0.1;
+var meteor_depth = 0.1;
 var falling_distance = 10;
-var floor_width = 50;
-var floor_height = 50;
+
+// Floor
+var floor_width = 40;
+var floor_height = 40;
 
 if (typeof AFRAME === 'undefined') {
   throw new Error('Component attempted to register before' +
@@ -32,16 +38,17 @@ function initFloor(){
 
 // Generate falling meteor
 function generateMeteor(){
-    x = Math.floor((Math.random() * 40) - 20);
-    y = Math.floor((Math.random() * 40) - 20);
+    x = Math.floor((Math.random() * floor_width) - floor_width/2);
+    y = Math.floor((Math.random() * floor_height) - floor_height/2);
 
     var position = '' + x + ' ' + falling_distance + ' ' + y;
 
     var meteor = document.createElement('a-entity');
     meteor.setAttribute('geometry', {
         primitive: 'box',
-        height: 1,
-        width: 1,
+        height: meteor_height,
+        width: meteor_width,
+        depth: meteor_depth
     });
 
     meteor.setAttribute('position', position);
