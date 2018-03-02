@@ -2,13 +2,16 @@
   <head>
     <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-physics-system@1.4.0/dist/aframe-physics-system.min.js"></script>
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/v2.1.1/dist/aframe-extras.loaders.min.js"></script>
     <script src="meteors.js"></script>
+    <script src="gltf-model-legacy.js"></script>
   </head>
 
   <body>
-    <a-scene stats meteors-rain physics="driver: worker">
+    <a-scene meteors-rain physics="driver: worker">
         <a-assets>
             <img id="sky" src="https://img.gs/bbdkhfbzkk/2048x2048,stretch/http://i.imgur.com/WqlqEkq.jpg" crossorigin="anonymous" />
+            <a-asset-item id="spaceship2" src="spaceship.gltf"></a-asset-item>
         </a-assets>
 
         <a-entity camera look-controls wasd-controls>

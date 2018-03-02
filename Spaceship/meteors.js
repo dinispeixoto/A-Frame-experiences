@@ -73,7 +73,9 @@ function generateMeteor(){
         width: meteor_width,
         depth: meteor_depth
     });
-    meteor.setAttribute('color','#ECECEC');
+    meteor.setAttribute('material', {
+        color: 'white'
+    });
     meteor.setAttribute('position', position);
     meteor.setAttribute('dynamic-body', {
         shape: 'box',
