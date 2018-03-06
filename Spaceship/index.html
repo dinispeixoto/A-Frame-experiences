@@ -3,16 +3,18 @@
     <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-physics-system@1.4.0/dist/aframe-physics-system.min.js"></script>
     <script src="https://rawgit.com/donmccurdy/aframe-extras/v2.1.1/dist/aframe-extras.loaders.min.js"></script>
+    <script src="http://mrdoob.github.com/three.js/build/three.min.js"></script>
     <script src="meteors.js"></script>
-    <script src="gltf-model-legacy.js"></script>
   </head>
 
   <body>
     <a-scene meteors-rain physics="driver: worker">
         <a-assets>
             <img id="sky" src="https://img.gs/bbdkhfbzkk/2048x2048,stretch/http://i.imgur.com/WqlqEkq.jpg" crossorigin="anonymous" />
-            <a-asset-item id="spaceship2" src="spaceship.gltf"></a-asset-item>
+            <a-asset-item id="sp2" src="spaceship.obj"></a-asset-item>
         </a-assets>
+
+        <a-obj-model src="#sp2" scale="0.00001 0.00001 0.00001"></a-obj-model>
 
         <a-entity camera look-controls wasd-controls>
             <a-entity geometry="primitive: plane; height: 0.2; width: 0.2" position="0 0 -1" material="color: gray; opacity: 0.5"></a-entity>
@@ -20,7 +22,7 @@
 
         <a-plane id='floor' position="0 0 0" rotation="-90 0 0" color="#7BC8A4" static-body></a-plane>
 
-        <a-sky src="#sky" rotation="0 -90 0"></a-sky>
+        <a-sky color="#000000"></a-sky>
     </a-scene>
   </body>
 </html>
